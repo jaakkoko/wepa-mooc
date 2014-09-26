@@ -26,7 +26,7 @@ public class CalculatorControllerTest {
     private WebApplicationContext webAppContext;
 
     private MockMvc mockMvc;
-
+    
     @Before
     public void setUp() {
         this.mockMvc = MockMvcBuilders.webAppContextSetup(webAppContext).build();
