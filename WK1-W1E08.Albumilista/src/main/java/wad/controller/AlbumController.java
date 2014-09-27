@@ -1,5 +1,7 @@
 package wad.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import wad.repository.AlbumRepository;
 import wad.domain.Album;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +21,8 @@ public class AlbumController {
 
     @Autowired
     private AlbumRepository albumRepository;
-
+    @Autowired
+    private TrackRepository trackRepository;
 
     @RequestMapping(method = RequestMethod.GET)
     public String list(Model model) {
@@ -34,6 +37,32 @@ public class AlbumController {
             albumRepository.save(album);
         }
 
+        return "redirect:/albums";
+    }
+    
+    @RequestMapping(value="/{albumId}/tracks", method=RequestMethod.POST)
+    public String addTrack(@PathVariable long albumId, String name, @ModelAttribute Track track){
+        if (name!=null && !name.trim().isEmpty()){
+            Album album = albumRepository.findOne(albumId);
+            List<Track>trackList = new ArrayList();
+            track.setName(name);
+            trackList.add(track);
+            album.setTracks(trackList);
+            trackRepository.save(track);
+        }
+        
+        return "redirect:/albums";
+    }
+    
+    @Transactional
+    @RequestMapping(value="/{albumId}/tracks/{trackId}/delete", method=RequestMethod.POST)
+    public String deleteTrack(@PathVariable long albumId, @PathVariable long trackId){
+        Album album = albumRepository.findOne(albumId);
+        Track track = trackRepository.findOne(trackId);
+        List<Track> trackList = album.getTracks();
+        trackList.remove(track);
+        trackRepository.delete(trackId);
+        
         return "redirect:/albums";
     }
 

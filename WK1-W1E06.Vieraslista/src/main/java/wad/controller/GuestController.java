@@ -22,4 +22,27 @@ public class GuestController {
         return "/WEB-INF/views/page.jsp";
     }
 
+    @RequestMapping(method = RequestMethod.POST)
+    public String addGuest(@ModelAttribute Guest guest){
+        if (guest.getName() != null){
+            if (!guest.getName().trim().isEmpty()) guests.add(guest);
+        }
+        
+        
+        return "redirect:/guests";
+    }
+    
+    @RequestMapping(value = "/{id}/delete",  method = RequestMethod.POST)
+    public String deleteGuest(@PathVariable String id){
+       Guest guest = getGuestById(id);
+       if (guest != null) guests.remove(guest);
+       return "redirect:/guests";
+    }
+    
+    public Guest getGuestById(String id){
+        for(Guest guest : guests){
+            if (guest.getId().equals(id)) return guest;
+        }
+        return null;
+    }
 }
