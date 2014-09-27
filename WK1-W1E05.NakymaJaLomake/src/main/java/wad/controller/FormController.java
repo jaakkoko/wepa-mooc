@@ -12,9 +12,12 @@ public class FormController {
 
     @RequestMapping("*")
     // BEGIN STUB
-    public String view(Model model) {
+    public String view(Model model, @RequestParam(required=false, defaultValue="") String data) {
+        
         model.addAttribute("data", inMemory);
+        if (!data.isEmpty()) inMemory = data;
         return "/WEB-INF/views/page.jsp";
     }
+    
     // END STUB
 }

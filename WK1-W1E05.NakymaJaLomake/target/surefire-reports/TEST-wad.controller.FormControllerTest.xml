@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="wad.controller.FormControllerTest" time="10.073" tests="1" errors="0" skipped="0" failures="1">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="/home/jaakko/jdk1.8.0_20/jre/lib/amd64"/>
+    <property name="java.vm.version" value="25.20-b23"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=":"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="/home/jaakko/NetBeansProjects/2014-wepa-mooc/WK1-W1E05.NakymaJaLomake"/>
+    <property name="java.runtime.version" value="1.8.0_20-b26"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="/home/jaakko/jdk1.8.0_20/jre/lib/endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="os.name" value="Linux"/>
+    <property name="maven.ext.class.path" value="/home/jaakko/netbeans-8.0.1/java/maven-nblib/netbeans-eventspy.jar"/>
+    <property name="classworlds.conf" value="/home/jaakko/netbeans-8.0.1/java/maven/bin/m2.conf"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/home/jaakko/jdk1.8.0_20/jre/lib/amd64:/home/jaakko/jdk1.8.0_20/jre/lib/i386::/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="3.14-1-amd64"/>
+    <property name="user.home" value="/home/jaakko"/>
+    <property name="user.timezone" value="Europe/Helsinki"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="user.name" value="jaakko"/>
+    <property name="java.class.path" value="/home/jaakko/netbeans-8.0.1/java/maven/boot/plexus-classworlds-2.4.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="/home/jaakko/jdk1.8.0_20/jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=/home/jaakko/netbeans-8.0.1/java/maven-nblib/netbeans-eventspy.jar install"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="en"/>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_20"/>
+    <property name="java.ext.dirs" value="/home/jaakko/jdk1.8.0_20/jre/lib/ext:/usr/java/packages/lib/ext"/>
+    <property name="securerandom.source" value="file:/dev/./urandom"/>
+    <property name="sun.boot.class.path" value="/home/jaakko/jdk1.8.0_20/jre/lib/resources.jar:/home/jaakko/jdk1.8.0_20/jre/lib/rt.jar:/home/jaakko/jdk1.8.0_20/jre/lib/sunrsasign.jar:/home/jaakko/jdk1.8.0_20/jre/lib/jsse.jar:/home/jaakko/jdk1.8.0_20/jre/lib/jce.jar:/home/jaakko/jdk1.8.0_20/jre/lib/charsets.jar:/home/jaakko/jdk1.8.0_20/jre/lib/jfr.jar:/home/jaakko/jdk1.8.0_20/jre/classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="/home/jaakko/netbeans-8.0.1/java/maven"/>
+    <property name="file.separator" value="/"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.cpu.isalist" value=""/>
+  </properties>
+  <testcase name="nahdaanEdellisessaPyynnossaLahetettyViesti" classname="wad.controller.FormControllerTest" time="10.073">
+    <failure message="Model attribute &apos;data&apos; expected:&lt;viesti&gt; but was:&lt;nothing..&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: Model attribute 'data' expected:<viesti> but was:<nothing..>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:60)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:89)
+	at org.springframework.test.web.servlet.result.ModelResultMatchers$2.match(ModelResultMatchers.java:70)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:149)
+	at wad.controller.FormControllerTest.nahdaanEdellisessaPyynnossaLahetettyViesti(FormControllerTest.java:47)
+]]></failure>
+    <system-out>02:24:54.277 [main] DEBUG o.s.t.c.j.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class wad.controller.FormControllerTest].
+02:24:54.454 [main] DEBUG o.s.test.context.ContextLoaderUtils - Found explicit ContextLoader class [org.springframework.boot.test.SpringApplicationContextLoader] for context configuration attributes [ContextConfigurationAttributes@224edc67 declaringClass = 'wad.controller.FormControllerTest', classes = '{class wad.Application}', locations = '{}', inheritLocations = true, initializers = '{}', inheritInitializers = true, name = [null], contextLoaderClass = 'org.springframework.boot.test.SpringApplicationContextLoader']
+02:24:54.474 [main] DEBUG o.s.test.context.ContextLoaderUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [wad.controller.FormControllerTest]
+02:24:54.491 [main] DEBUG o.s.test.context.TestContextManager - @TestExecutionListeners is not present for class [wad.controller.FormControllerTest]: using defaults.
+02:24:54.531 [main] INFO  o.s.test.context.TestContextManager - Could not instantiate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+02:24:54.537 [main] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [wad.controller.FormControllerTest]
+02:24:54.556 [main] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [wad.controller.FormControllerTest]
+02:24:54.566 [main] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [wad.controller.FormControllerTest]
+02:24:54.571 [main] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [wad.controller.FormControllerTest]
+02:24:54.592 [main] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [wad.controller.FormControllerTest]
+02:24:54.597 [main] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [wad.controller.FormControllerTest]
+02:24:54.926 [main] DEBUG o.s.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+02:24:54.936 [main] DEBUG o.s.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+02:24:54.942 [main] DEBUG o.s.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+02:24:54.952 [main] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletConfigInitParams] PropertySource with lowest search precedence
+02:24:54.953 [main] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletContextInitParams] PropertySource with lowest search precedence
+02:24:54.963 [main] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [jndiProperties] PropertySource with lowest search precedence
+02:24:54.964 [main] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+02:24:54.965 [main] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+02:24:54.966 [main] DEBUG o.s.w.c.s.StandardServletEnvironment - Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,jndiProperties,systemProperties,systemEnvironment]
+02:24:54.973 [main] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [integrationTest] PropertySource with search precedence immediately lower than [systemEnvironment]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v1.1.6.RELEASE)
+
+2014-09-27 02:24:56.141  INFO 18474 --- [           main] o.a.maven.surefire.booter.ForkedBooter   : Starting ForkedBooter v2.15 on ruoste with PID 18474 (/home/jaakko/.m2/repository/org/apache/maven/surefire/surefire-booter/2.15/surefire-booter-2.15.jar started by jaakko in /home/jaakko/NetBeansProjects/2014-wepa-mooc/WK1-W1E05.NakymaJaLomake)
+2014-09-27 02:24:56.314  INFO 18474 --- [           main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@29626d54: startup date [Sat Sep 27 02:24:56 EEST 2014]; root of context hierarchy
+2014-09-27 02:24:58.497  INFO 18474 --- [           main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'beanNameViewResolver': replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration; factoryMethodName=beanNameViewResolver; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/web/ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter; factoryMethodName=beanNameViewResolver; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/web/WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter.class]]
+2014-09-27 02:25:02.899  INFO 18474 --- [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2014-09-27 02:25:03.690  INFO 18474 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/*],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String wad.controller.FormController.view(org.springframework.ui.Model)
+2014-09-27 02:25:03.702  INFO 18474 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],methods=[],params=[],headers=[],consumes=[],produces=[text/html],custom=[]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest)
+2014-09-27 02:25:03.707  INFO 18474 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.http.ResponseEntity&lt;java.util.Map&lt;java.lang.String, java.lang.Object&gt;&gt; org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2014-09-27 02:25:03.771  INFO 18474 --- [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2014-09-27 02:25:03.784  INFO 18474 --- [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2014-09-27 02:25:04.251  INFO 18474 --- [           main] o.a.maven.surefire.booter.ForkedBooter   : Started ForkedBooter in 9.248 seconds (JVM running for 12.074)
+2014-09-27 02:25:04.305  INFO 18474 --- [           main] o.s.mock.web.MockServletContext          : Initializing Spring FrameworkServlet ''
+2014-09-27 02:25:04.310  INFO 18474 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2014-09-27 02:25:04.390  INFO 18474 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 77 ms
+</system-out>
+  </testcase>
+</testsuite>

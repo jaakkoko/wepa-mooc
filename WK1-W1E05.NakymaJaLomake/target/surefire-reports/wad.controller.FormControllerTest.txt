@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: wad.controller.FormControllerTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 11.074 sec <<< FAILURE! - in wad.controller.FormControllerTest
+nahdaanEdellisessaPyynnossaLahetettyViesti(wad.controller.FormControllerTest)  Time elapsed: 10.073 sec  <<< FAILURE!
+java.lang.AssertionError: Model attribute 'data' expected:<viesti> but was:<nothing..>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:60)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:89)
+	at org.springframework.test.web.servlet.result.ModelResultMatchers$2.match(ModelResultMatchers.java:70)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:149)
+	at wad.controller.FormControllerTest.nahdaanEdellisessaPyynnossaLahetettyViesti(FormControllerTest.java:47)
+
