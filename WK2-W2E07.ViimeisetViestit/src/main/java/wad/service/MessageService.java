@@ -15,11 +15,12 @@ import wad.repository.MessageRepository;
 public class MessageService {
 
     @Autowired
-    private MessageRepository messageRepository;
-
+    private MessageRepository messageRepository; 
+    
     public List<Message> list() {
-
-        return messageRepository.findAll();
+        Pageable pageable = new PageRequest(0,10,Sort.Direction.DESC,"messageDate");
+        Page<Message> messagePage = messageRepository.findAll(pageable);
+        return messagePage.getContent();
     }
 
     @Transactional

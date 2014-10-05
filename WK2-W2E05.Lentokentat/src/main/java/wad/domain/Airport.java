@@ -12,6 +12,8 @@ public class Airport extends AbstractPersistable<Long> {
 
     private String identifier;
     private String name;
+    @OneToMany(mappedBy="airport",fetch=FetchType.EAGER)
+    private List<Aircraft> aircrafts;
 
     public String getIdentifier() {
         return identifier;
@@ -27,6 +29,20 @@ public class Airport extends AbstractPersistable<Long> {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    /**
+     * @return the aircrafts
+     */
+    public List<Aircraft> getAircrafts() {
+        return aircrafts;
+    }
+
+    /**
+     * @param aircrafts the aircrafts to set
+     */
+    public void setAircrafts(List<Aircraft> aircrafts) {
+        this.aircrafts = aircrafts;
     }
 
 }
