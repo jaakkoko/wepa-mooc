@@ -1,5 +1,6 @@
 package wad.controller;
 
+import java.util.List;
 import javax.validation.Valid;
 import wad.domain.Message;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import wad.service.MessageService;
 
 @Controller
@@ -24,19 +26,19 @@ public class MessageController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public String list(Model model) {
-        model.addAttribute("messages", messageService.list());
-        return "/WEB-INF/views/messages.jsp";
+    @ResponseBody
+    public List<Message> list() {
+        //model.addAttribute("messages", messageService.list());
+        
+        return messageService.list();
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String create(@Valid Message message,
+    public void create(@Valid Message message,
             BindingResult result) {
-        if (result.hasErrors()) {
-            return "/WEB-INF/views/messages.jsp";
+        if (!result.hasErrors()) {
+            messageService.addMessage(message);
         }
-
-        messageService.addMessage(message);
-        return "redirect:/messages";
+        
     }
 }

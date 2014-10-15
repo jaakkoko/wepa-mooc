@@ -15,6 +15,7 @@ public class Rating extends AbstractPersistable<Long> {
     @Max(5)
     private Integer rating;
 
+    
     // Pelin nimeä ei validoida, koska ohjelma asettaa sen REST URL:n perusteella
     private String gameName;
 
