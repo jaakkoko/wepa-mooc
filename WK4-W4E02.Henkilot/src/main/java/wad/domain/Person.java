@@ -1,5 +1,7 @@
 package wad.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -20,6 +22,7 @@ public class Person extends AbstractPersistable<Long>{
     
     @Column(unique=true)
     @NotNull
+    @JsonProperty("password")
     private String password;
 
     /**
@@ -53,6 +56,7 @@ public class Person extends AbstractPersistable<Long>{
     /**
      * @return the password
      */
+    @JsonIgnore
     public String getPassword() {
         return password;
     }
