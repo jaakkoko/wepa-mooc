@@ -3,6 +3,7 @@ package wad.domain;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 @Entity
@@ -10,12 +11,15 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 public class Person extends AbstractPersistable<Long>{
 
     @Column(unique=true)
+    @NotNull
     private String name;
     
     @Column(unique=true)
+    @NotNull
     private String username;
     
     @Column(unique=true)
+    @NotNull
     private String password;
 
     /**
