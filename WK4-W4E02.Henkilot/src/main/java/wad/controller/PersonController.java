@@ -8,28 +8,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import wad.domain.Person;
-import wad.repository.PersonRepository;
+import wad.service.PersonService;
 
 @RestController
 @RequestMapping("/persons")
 public class PersonController{
 
     @Autowired
-    PersonRepository personRepository;
+    PersonService personService;
     
     @RequestMapping(method=RequestMethod.POST)
     public void addPerson(@RequestBody Person person){
-        personRepository.save(person);
+        personService.addPerson(person);
     }
     
     @RequestMapping(method=RequestMethod.GET)
     public List<Person> getPersons(){
-        return personRepository.findAll();
+        return personService.list();
     }
     
     @RequestMapping(value="/{id}",method=RequestMethod.GET)
     public Person getPerson(@PathVariable long id){
-        return personRepository.findOne(id);
+        return personService.getPerson(id);
     }
     
     
