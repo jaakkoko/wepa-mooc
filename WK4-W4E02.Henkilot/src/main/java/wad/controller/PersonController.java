@@ -1,5 +1,6 @@
 package wad.controller;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,11 @@ public class PersonController{
     @RequestMapping(method=RequestMethod.POST)
     public void addPerson(@RequestBody Person person){
         personRepository.save(person);
+    }
+    
+    @RequestMapping(method=RequestMethod.GET)
+    public List<Person> getPersons(){
+        return personRepository.findAll();
     }
     
     
