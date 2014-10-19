@@ -1,5 +1,6 @@
 package wad.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
@@ -22,7 +23,7 @@ public class Reservation extends AbstractPersistable<Long> {
     @Temporal(value = TemporalType.TIMESTAMP)
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
     private Date reservationEnd;
-
+    
     public Reservation() {
         this.paymentStatus = "UNPAID";
     }

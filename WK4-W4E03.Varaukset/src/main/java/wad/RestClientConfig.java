@@ -47,7 +47,6 @@ public class RestClientConfig {
         final ObjectMapper halObjectMapper = new ObjectMapper();
         halObjectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         halObjectMapper.configure(DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES, false);
-
         halObjectMapper.registerModule(new Jackson2HalModule());
         halObjectMapper
                 .setHandlerInstantiator(new Jackson2HalModule.HalHandlerInstantiator(delegatingRelProvider, null));
