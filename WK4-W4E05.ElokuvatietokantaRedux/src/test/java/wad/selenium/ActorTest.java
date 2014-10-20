@@ -23,23 +23,19 @@ public class ActorTest{
         // tällä hetkellä kuitenkin buginen, joten ajetaan testit 
         // manuaalisesti käynnistettyyn sovellukseen
 
-        SpringApplication.run(Application.class);
+        //SpringApplication.run(Application.class);
         this.driver = new HtmlUnitDriver();
     }
 
     @Test
-    public void onceBobSubmittedSignupSuccessful() {
-        // haetaan haluttu osoite (aiemmin määritelty muuttuja, esim.
-        // http://localhost:8080/signup )
+    public void addingAndDeletingActor() {
         driver.get(ACTOR_URL);
         assertFalse(driver.getPageSource().contains("Van Damme"));
         
-        
-        // haetaan kenttä nimeltä tunnus
-        WebElement element = driver.findElement(By.name("name"));
+      
+        WebElement element = driver.findElement(By.id("name"));
         element.sendKeys("Van Damme");
         element.submit();
-        
         assertTrue(driver.getPageSource().contains("Van Damme"));
         
        
