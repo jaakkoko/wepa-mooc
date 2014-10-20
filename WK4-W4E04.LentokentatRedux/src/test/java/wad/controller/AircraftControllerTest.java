@@ -1,5 +1,7 @@
 package wad.controller;
 
+import java.util.List;
+import junit.framework.Assert;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import org.junit.Before;
@@ -12,6 +14,7 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -55,10 +58,31 @@ public class AircraftControllerTest{
                 .param("name","HA-LOL"))
                 .andExpect(status().is3xxRedirection());
         
-        Aircraft ac = aircraftRepository.findOne(1L);
-        assertNotNull(ac);
-        assertEquals("HA-LOL",ac.getName());
-        
+        boolean found = false;
+        for(Aircraft ac : aircraftRepository.findAll()){
+            if(ac.getName().equals("HA-LOL")) found = true;
+        }
+        assertEquals(true,found);
     }
  
+    @Test
+    public void postAndGetAircraft() throws Exception {
+        mockMvc.perform(post(API_URI)
+                .param("name","XP-55"))
+                .andExpect(status().is3xxRedirection());
+        
+        MvcResult res =mockMvc.perform(get(API_URI))
+                .andExpect(status().isOk())
+                .andExpect(model().attributeExists("aircrafts"))
+                .andReturn();
+        
+        List<Aircraft> aircrafts = (List) res.getModelAndView().getModel().get("aircrafts");
+        boolean found = false;
+        for (Aircraft ac : aircrafts){
+            if(ac.getName().equals("XP-55")) found = true;
+        }
+        
+        assertEquals(true,found);
+            
+    }
 }
