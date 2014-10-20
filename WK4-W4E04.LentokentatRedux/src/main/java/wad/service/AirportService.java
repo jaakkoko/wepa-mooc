@@ -18,9 +18,9 @@ public class AirportService {
 
     @Transactional
     public void assignAirport(Long aircraftId, Long airportId) {
+        
         Aircraft aircraft = aircraftRepository.findOne(aircraftId);
         Airport airport = airportRepository.findOne(airportId);
-
         aircraft.setAirport(airport);
         airport.addAircraft(aircraft);
     }

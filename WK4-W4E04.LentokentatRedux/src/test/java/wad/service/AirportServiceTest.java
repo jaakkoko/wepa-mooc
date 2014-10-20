@@ -1,58 +1,105 @@
 package wad.service;
 
 
-import org.junit.Before;
+import java.util.ArrayList;
+import java.util.List;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
-import org.springframework.test.web.servlet.MockMvc;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.context.WebApplicationContext;
 import wad.Application;
 import wad.domain.Aircraft;
 import wad.domain.Airport;
+import wad.repository.AircraftRepository;
+import wad.repository.AirportRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Application.class)
-@WebAppConfiguration
 public class AirportServiceTest{
 
-    private final String AIRPORT_URI = "/airports";
-    private final String AIRCRAFT_URI = "/aircrafts";
-
     @Autowired
-    private WebApplicationContext webAppContext;
-
-    private MockMvc mockMvc;
+    private AirportService apService;
     
-    @Before
-    public void setUp(){
-        this.mockMvc = MockMvcBuilders.webAppContextSetup(webAppContext).build();
-    }
+    @Autowired
+    private AircraftRepository acRepository;
     
-    @Test
-    public void statusOK() throws Exception{
-        mockMvc.perform(get(AIRPORT_URI)).andExpect(status().isOk());
-    }
+    @Autowired
+    private AirportRepository apRepository;
     
-    @Test
-    public void addAirport(){
-        Airport ap = new Airport();
-        
-                
-    }
-    
-    @Test
-    public void addAircraft(){
+    private void createAircraft(String name){
         Aircraft ac = new Aircraft();
+        ac.setName(name);
+        acRepository.save(ac);
+    }
+    
+    private void createAirport(String name){
+        Airport ap = new Airport();
+        ap.setName(name);
+        apRepository.save(ap);        
+    }
+   
+    @Test
+    public void addAircraftToAirport() throws Exception{
+        createAircraft("Testcraft");
+        createAirport("Testport");
         
-        
+        apService.assignAirport(1L,1L);
+                
+        Airport res = acRepository.findOne(1L).getAirport();
+        assertNotNull(res);
+        assertEquals("Testport",res.getName());
         
     }
     
+    @Test
+    public void airportHasAircraft() throws Exception{
+        createAircraft("Testcraft");
+        createAirport("Testport");
+        
+        apService.assignAirport(1L, 1L);
+        
+        Aircraft res = apRepository.findOne(1L).getAircrafts().get(0);
+        assertNotNull(res);
+        assertEquals("Testcraft",res.getName());
+    }
+    
+    @Test
+    public void aircraftHasOnlyOneAirport() throws Exception{
+        createAircraft("Testcraft");
+        createAirport("Testport");
+        createAirport("Testport");
+        
+        apService.assignAirport(1L, 1L);
+        apService.assignAirport(1L, 2L);
+        
+        List<Aircraft>aircraftsFound = new ArrayList<>();
+        for (Airport ap : apRepository.findAll()){
+            for(Aircraft ac : ap.getAircrafts()){
+               aircraftsFound.add(ac);
+            }
+        }
+        
+        assertNotNull(aircraftsFound);
+        assertEquals(1,aircraftsFound.size());
+    }
+    
+    @Test
+    public void cantAddSameAircraft() throws Exception{
+        createAircraft("Testcraft");
+        createAirport("Testfield");
+        
+        apService.assignAirport(1L, 1L);
+        apService.assignAirport(1L, 1L);
+        apService.assignAirport(1L, 1L);
+        
+        Airport airport = acRepository.findOne(1L).getAirport();
+        int res = airport.getAircrafts().size();
+        
+        assertEquals(1,res);
+    }
+    
+     
 }
