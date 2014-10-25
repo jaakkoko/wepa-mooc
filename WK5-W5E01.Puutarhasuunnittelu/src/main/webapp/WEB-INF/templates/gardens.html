@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head lang="en">
+        <meta charset="UTF-8" />
+        <title>Gardens!</title>
+    </head>
+    <body>
+        <div th:replace="fragments/header :: header">
+            here be a header
+        </div>
+
+        <h2>Gardens</h2>
+
+    <div th:each="garden : ${gardens}">
+        <h3 th:text="${garden.name}">garden name</h3>
+
+        <div th:if="${not #lists.isEmpty(garden.vegetables)}">
+            <h4>Current vegetables</h4>
+            <ol>
+                <li th:each="vegetable : ${garden.vegetables}" th:text="${vegetable.name}">veggie</li>
+            </ol>
+        </div>
+    
+        <div th:if="${not #lists.isEmpty(vegetables)}">
+            <h5>plant a vegetable</h5>
+
+            <form method="POST" th:action="@{/gardens/{id}/vegetables(id=${garden.id})}" action="/gardens/1/vegetables">
+
+                <select name="vegetableId">
+                    <option th:each="vegetable : ${vegetables}" 
+                        th:value="${vegetable.id}" 
+                        th:text="${vegetable.name}">veg name to add</option>
+                </select>
+
+                <input type="submit" value="Add"/>
+            </form>
+        </div>
+    </div>
+
+        <h2>Add new garden</h2>
+        <form method="POST" th:action="@{/gardens}">
+            <input type="text" name="name"/><p th:if="${#fields.hasErrors('garden.name')}" th:errors="*{garden.name}">here be errors</p>
+            <input type="submit" value="Add"/>
+        </form>
+        
+    </body>
+</html>
