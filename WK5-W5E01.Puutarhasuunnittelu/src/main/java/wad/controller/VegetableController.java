@@ -18,7 +18,6 @@ public class VegetableController {
     @Autowired
     private VegetableRepository vgRepo;
     
-    
     @ModelAttribute("vegetable")
     public Vegetable vegetable(){
         return new Vegetable();
