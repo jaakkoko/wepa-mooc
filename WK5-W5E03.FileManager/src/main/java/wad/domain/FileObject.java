@@ -7,7 +7,7 @@ import javax.persistence.Lob;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 @Entity
-public class File extends AbstractPersistable<Long> {
+public class FileObject extends AbstractPersistable<Long> {
     
     private String name;
     private String mediaType;
