@@ -49,4 +49,16 @@ public class FileController{
         return "redirect:/files";
     }
     
+    @RequestMapping(value="/{id}",method=RequestMethod.GET)
+    public ResponseEntity<byte[]> getFile(@PathVariable long id){
+        FileObject fo = foRepository.findOne(id);
+
+        final HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.parseMediaType(fo.getContentType()));
+        headers.setContentLength(fo.getContentLength());
+        headers.add("Content-Disposition", "attachment; filename=" + fo.getName());
+
+        return new ResponseEntity<>(fo.getContent(), headers, HttpStatus.CREATED);
+        
+    }
 }
