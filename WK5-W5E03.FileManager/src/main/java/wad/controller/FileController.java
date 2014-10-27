@@ -2,8 +2,13 @@ package wad.controller;
 
 import java.io.IOException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,12 +34,19 @@ public class FileController{
         FileObject fo = new FileObject();
 
         fo.setName(file.getOriginalFilename());
-        fo.setMediaType(file.getContentType());
-        fo.setSize(file.getSize());
+        fo.setContentType(file.getContentType());
+        fo.setContentLength(file.getSize());
         fo.setContent(file.getBytes());
 
         foRepository.save(fo);
 
         return "redirect:/files";
     }
+    
+    @RequestMapping(value="/{id}",method=RequestMethod.DELETE)
+    public String deleteFile(@PathVariable long id){
+        if(foRepository.exists(id))foRepository.delete(id);
+        return "redirect:/files";
+    }
+    
 }

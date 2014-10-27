@@ -10,8 +10,8 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 public class FileObject extends AbstractPersistable<Long> {
     
     private String name;
-    private String mediaType;
-    private Long size;
+    private String contentType;
+    private Long contentLength;
 
     @Lob
     @Basic(fetch = FetchType.LAZY)
@@ -31,33 +31,6 @@ public class FileObject extends AbstractPersistable<Long> {
         this.name = name;
     }
 
-    /**
-     * @return the mediaType
-     */
-    public String getMediaType() {
-        return mediaType;
-    }
-
-    /**
-     * @param mediaType the mediaType to set
-     */
-    public void setMediaType(String mediaType) {
-        this.mediaType = mediaType;
-    }
-
-    /**
-     * @return the size
-     */
-    public Long getSize() {
-        return size;
-    }
-
-    /**
-     * @param size the size to set
-     */
-    public void setSize(Long size) {
-        this.size = size;
-    }
 
     /**
      * @return the content
@@ -71,5 +44,33 @@ public class FileObject extends AbstractPersistable<Long> {
      */
     public void setContent(byte[] content) {
         this.content = content;
+    }
+
+    /**
+     * @return the contentType
+     */
+    public String getContentType() {
+        return contentType;
+    }
+
+    /**
+     * @param contentType the contentType to set
+     */
+    public void setContentType(String contentType) {
+        this.contentType = contentType;
+    }
+
+    /**
+     * @return the contentLength
+     */
+    public Long getContentLength() {
+        return contentLength;
+    }
+
+    /**
+     * @param contentLength the contentLength to set
+     */
+    public void setContentLength(Long contentLength) {
+        this.contentLength = contentLength;
     }
 }
