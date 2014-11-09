@@ -2,6 +2,7 @@ package wad.controller;
 
 import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -30,6 +31,7 @@ public class MessageController {
         return "messages";
     }
 
+    @Secured("POSTER")
     @RequestMapping(method = RequestMethod.POST)
     public String add(@ModelAttribute Message message) {
         if (message.getContent() != null && !message.getContent().isEmpty()) {
